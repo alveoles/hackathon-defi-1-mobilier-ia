@@ -1,0 +1,15 @@
+# Testé sur macOS (M1 Pro, Python 3.11) le 24/11/2026. Windows/Linux + NVIDIA : voir INSTALL.md pour torch CUDA.
+torch==2.15.0
+torchvision==0.29.2
+diffusers==0.43.0
+transformers==5.24.0
+accelerate==1.16.0
+peft==0.22.0
+safetensors==0.8.0
+opencv-python-headless==5.1.0.95
+pillow==13.0.0
+rembg[cpu]==2.0.87
+build123d==0.13.0
+ezdxf==1.4.5
+huggingface-hub==2.4.0
+gradio==6.32.0
