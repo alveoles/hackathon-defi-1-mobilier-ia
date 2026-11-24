@@ -1,0 +1,93 @@
+/* Charte Code Runners (DESIGN.md) appliquée à un sujet A4. */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  --vert-nuit:#013D2D; --vert-ombre:#0E5A45; --blanc-menthe:#F4FBF8; --jaune:#F2C14E;
+  --vert-runners:#27C08E; --menthe:#7FD6CD; --gris-vert:#8DBDB0; --texte-doux:#CFE6DF;
+  --bandeau:#EAF6F1; --bandeau-texte:#2D5A4D;
+  --fond-clair:#F2F8F5; --carte:#FBFDFC; --bordure-carte:#D3E6DF; --texte-fonce:#12302A;
+  --texte-gris:#3D5C55; --vert-lisible:#0B7A51; --jaune-pale:#FBF3DA; --brun-jaune:#7A5A00;
+  --hex: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0L56 16.2V48.5L28 64.7L0 48.5V16.2Z M28 64.7V97 M0 16.2L-28 0 M56 16.2L84 0' fill='none' stroke='%237FD6CD' stroke-opacity='.18' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+@page { size: A4; margin: 18mm 17mm 20mm; background: var(--fond-clair);
+  @bottom-left { content: "code_runners · 02.12.2026"; font: 400 7.5pt 'JetBrains Mono', monospace; color: #3D5C55; }
+  @bottom-right { font: 400 7.5pt 'JetBrains Mono', monospace; color: #3D5C55; } }
+@page :first { margin: 0; @bottom-left { content: none; } @bottom-right { content: none; } }
+* { box-sizing: border-box; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+html { background: var(--fond-clair); }
+body { margin: 0; font: 400 10.5pt/1.55 Inter, sans-serif; color: var(--texte-fonce); }
+code { font-family: 'JetBrains Mono', monospace; font-size: .88em; color: var(--vert-lisible); }
+
+/* ---------- Couverture (fond sombre) ---------- */
+.cover {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  background: var(--vert-nuit); color: var(--blanc-menthe); padding: 16mm 18mm;
+  page-break-after: always; display: flex; flex-direction: column;
+}
+.cover::before {
+  content: ""; position: absolute; inset: 0; background-image: var(--hex);
+  -webkit-mask-image: linear-gradient(200deg, #000 0%, rgba(0,0,0,.2) 50%, transparent 78%);
+}
+.cover > * { position: relative; }
+.prompt { font: 400 9pt 'JetBrains Mono', monospace; color: var(--gris-vert); }
+.prompt .u { color: var(--menthe); } .prompt .p { color: var(--jaune); }
+.brand { margin-top: 6mm; font: 700 11pt Inter, sans-serif; letter-spacing: .02em; }
+.brand .x { font-family: 'JetBrains Mono', monospace; color: var(--jaune); }
+
+.title { margin-top: 30mm; font: 900 50pt/1 Orbitron, sans-serif; letter-spacing: .01em;
+  transform: skewX(-9deg); transform-origin: bottom left; text-shadow: 4px 4px 0 var(--vert-ombre); }
+.title .code { color: var(--blanc-menthe); display: block; }
+.title .run { color: var(--jaune); } .title .ners { color: var(--vert-runners); }
+.bar { display: inline-flex; height: 8px; margin-top: 3mm; transform: skewX(-9deg); transform-origin: bottom left; }
+.bar .h { width: 40mm; background: repeating-linear-gradient(-55deg, #F2C14E 0 5px, transparent 5px 11px); }
+.bar .f { width: 52mm; background: var(--vert-runners); clip-path: polygon(0 0,100% 0,calc(100% - 8px) 100%,0 100%); }
+
+.badge { margin-top: 26mm; display: inline-block; align-self: flex-start; padding: 1.5mm 3mm; border-radius: 4px;
+  background: var(--jaune); color: var(--vert-nuit); font: 700 10pt 'JetBrains Mono', monospace; letter-spacing: .08em; }
+.defi { margin-top: 5mm; font: 900 40pt/1.05 Orbitron, sans-serif; color: var(--blanc-menthe);
+  transform: skewX(-9deg); transform-origin: bottom left; text-shadow: 4px 4px 0 var(--vert-ombre); }
+.soustitre { margin-top: 7mm; padding-left: 4mm; border-left: 4px solid var(--jaune);
+  font: 600 14pt/1.35 Inter, sans-serif; color: var(--texte-doux); max-width: 140mm; }
+.accroche { margin-top: 8mm; font: 400 13pt 'JetBrains Mono', monospace; color: var(--blanc-menthe); }
+.accroche .k { color: var(--menthe); } .accroche .fn { color: var(--jaune); }
+.cursor { display: inline-block; width: 6px; height: 13pt; background: var(--vert-runners); vertical-align: -2px; margin-left: 2px; }
+
+.cover .spacer { flex: 1; }
+.date { display: inline-flex; align-items: baseline; gap: 4mm; align-self: flex-start; background: var(--jaune);
+  color: var(--vert-nuit); padding: 3mm 5mm; border-radius: 6px; }
+.date .j { font: 700 9pt 'JetBrains Mono', monospace; letter-spacing: .2em; }
+.date .d { font: 700 34pt/1 'Space Grotesk', sans-serif; letter-spacing: -.04em; }
+.date .y { font: 700 11pt 'JetBrains Mono', monospace; }
+.lieu { margin-top: 5mm; font: 400 9pt 'JetBrains Mono', monospace; color: var(--gris-vert); }
+.lieu .k { color: var(--menthe); } .lieu .v { color: var(--jaune); }
+.soutien { margin: 9mm -18mm -16mm; padding: 4mm 18mm; background: var(--bandeau); color: var(--bandeau-texte);
+  font: 400 8.5pt 'JetBrains Mono', monospace; display: flex; justify-content: space-between; }
+.soutien b { font-family: Inter, sans-serif; font-weight: 700; }
+
+/* ---------- Pages de contenu (fond clair) ---------- */
+h2 { font: 900 19pt/1.15 Orbitron, sans-serif; text-transform: uppercase; color: var(--texte-fonce);
+  transform: skewX(-9deg); transform-origin: bottom left; margin: 9mm 0 4mm; break-after: avoid; }
+h2::before { content: "// " attr(data-n); display: block; transform: skewX(9deg); margin-bottom: 1.5mm;
+  font: 700 8pt 'JetBrains Mono', monospace; color: var(--vert-lisible); letter-spacing: .08em; text-transform: lowercase; }
+section:first-of-type h2 { margin-top: 0; }
+h3 { font: 700 12.5pt Inter, sans-serif; margin: 6mm 0 2.5mm; break-after: avoid; }
+h3::before { content: "▸ "; color: var(--vert-lisible); }
+p { margin: 0 0 3mm; }
+em { color: var(--texte-gris); }
+ul { margin: 0 0 4mm; padding-left: 0; list-style: none; }
+li { position: relative; padding-left: 6mm; margin-bottom: 1.6mm; break-inside: avoid; }
+li::before { content: "✓"; position: absolute; left: 0; color: var(--vert-lisible); font-weight: 700; }
+
+blockquote.info { margin: 4mm 0; padding: 3mm 4mm 3mm 5mm; border-radius: 6px; background: var(--jaune-pale);
+  border: 1.5px solid var(--jaune); border-left-width: 4px; color: var(--brun-jaune); break-inside: avoid; }
+blockquote.info::before { content: "// info"; display: block; font: 700 7.5pt 'JetBrains Mono', monospace; letter-spacing: .08em; margin-bottom: 1mm; }
+blockquote.info p { margin: 0; } blockquote.info strong { color: #5a4200; }
+
+table { width: 100%; border-collapse: separate; border-spacing: 0; margin: 3mm 0 4mm; font-size: 9pt;
+  background: var(--carte); border: 2px solid var(--bordure-carte); border-radius: 6px; overflow: hidden; break-inside: avoid; }
+th { text-align: left; font: 700 8pt 'JetBrains Mono', monospace; color: var(--vert-lisible); text-transform: lowercase;
+  padding: 2mm 3mm; border-bottom: 2px solid var(--bordure-carte); }
+td { padding: 2mm 3mm; vertical-align: top; border-bottom: 1px solid var(--bordure-carte); }
+tr:last-child td { border-bottom: 0; }
+.version { margin-top: 10mm; font: 400 8pt 'JetBrains Mono', monospace; color: var(--texte-gris); }
