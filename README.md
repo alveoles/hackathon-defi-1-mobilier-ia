@@ -1,24 +1,14 @@
-# Défi 1 — Prototyper du mobilier avec l'IA
+# Défi 01 : SKETCH2CNC
 
-> Hackathon Alvéoles × Epitech — mercredi 2 décembre, TechSud (Saint-Pierre)
+> Hackathon Alvéoles × Epitech, mercredi 2 décembre, TechSud (Saint-Pierre)
 
-## Le défi
+Construire un assistant de design qui transforme le croquis d'une assise en bois en rendus photoréalistes,
+puis en modèle 3D et en vecteurs de découpe CNC. Tout tourne en local, avec des outils gratuits et open source.
 
-À partir d'une **banque de matériaux** et de **contraintes de design et techniques**, utiliser l'IA pour **prototyper des produits mobilier**, via un **workflow open source** déployé en local ou sur serveur.
+## Contenu
 
-## Objectif
-
-Construire un outil qui part d'un brief (ex. « une étagère murale en bois local, 80 cm, budget 150 € ») et produit un prototype exploitable par un professionnel du mobilier.
-
-## Livrable attendu
-
-- Un workflow open source qui tourne (local ou serveur)
-- Une démo live : brief → proposition de mobilier
-- Un README qui explique comment lancer le projet
-
-## Ressources
-
-🚧 En préparation : banque de matériaux, contraintes, exemples de projets, starter code.
+- [`sujet/SUJET.pdf`](sujet/SUJET.pdf) : le sujet complet (source : `sujet/SUJET.md`)
+- [`starter-pack/`](starter-pack/) : le croquis de départ, les références et les sorties cibles du designer
 
 ## Démarrer
 

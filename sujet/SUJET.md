@@ -3,7 +3,7 @@ defi: 01
 titre: SKETCH2CNC
 accroche: if (idee) { fabriquer(); }
 sous_titre: Une idée ne vaut rien tant qu'elle n'est pas fabriquée.
-version: v1
+version: v2
 ---
 
 ## Introduction
@@ -38,36 +38,15 @@ Tu es libre sur les technologies, avec une contrainte : **tout tourne en local, 
 
 > ℹ️ Branches, pull requests, commits lisibles. Ton historique git fait partie du rendu.
 
-### Pistes locales
-
-La chaîne ci-dessous a été testée sur un MacBook M1 Pro 16 Go : **15 à 30 secondes par croquis**, du dessin au fichier de découpe. Elle est un point de départ, pas une obligation.
-
-| Étape | Testé | Autres pistes |
-|---|---|---|
-| Croquis → rendu | SD 1.5 DreamShaper 8 + ControlNet lineart + LCM-LoRA (≈ 8 s / image) | ComfyUI, IP-Adapter pour les matières |
-| Fond blanc | `rembg` (isnet-general-use) | BiRefNet |
-| Lecture des cotes | `qwen2.5vl:7b` via Ollama (`3b` sur 8 Go de RAM) | Gemma 3, Llama 3.2 Vision |
-| 3D paramétrique | build123d : cotes JSON → STEP + STL | CadQuery |
-| 3D mesh | TripoSR (visualisation seulement) | Shap-E |
-| Découpe | Export DXF de build123d | `ezdxf`, OpenCV, potrace |
-| Interface | Gradio | Streamlit, Three.js, `<model-viewer>` |
-
-> ℹ️ 16 Go de RAM ne suffisent pas pour charger tous les modèles en même temps. Enchaîne-les, ne les empile pas.
-
 ## Starter Pack
 
-Dans `starter-pack/` :
+Dans `starter-pack/`, le process réel d'Anthony pour sa chaise **Atto** :
 
-- `01_Inputs_Croquis/` : une dizaine de croquis de qualité variable
-- `02_Inputs_References/` : des photos de mobilier existant
-- `03_Outputs_Cibles/` : des captures du résultat attendu et `HACKATHON-Process.pdf`
-- `04_Template_CAO/` : un script Grasshopper (`.gh`) paramétrique, en référence
-- `05_Workflow_ComfyUI/` : un workflow croquis → rendu qui fonctionne tel quel
-- `Prompts_Exemples.txt` : des prompts de départ
+- `01_Inputs_Croquis/` : le croquis de départ, 3 vues sur une même feuille
+- `02_Inputs_References/` : une photo de mobilier existant
+- `03_Outputs_Cibles/` : ce qu'Anthony produit aujourd'hui (rendus, mises en situation, modèle Rhino) et `HACKATHON-Process.pdf`, son process en 7 étapes
 
-À la racine : `INSTALL.md` (installation pas à pas) et `check_setup.py` (vérifie que chaque brique tourne sur ta machine).
-
-> ℹ️ Les croquis sont de qualité variable, comme dans la réalité. Un outil qui ne fonctionne que sur le meilleur croquis ne fonctionne pas.
+> ℹ️ Le croquis est un vrai croquis de designer, pas un dessin technique : plusieurs vues, traits de construction, perspective à main levée. Ton outil doit s'en accommoder.
 
 ## Fonctionnalités
 
